@@ -1,0 +1,88 @@
+/* Shared page treatment; controls and content are defined in the Python views. */
+:root {
+  --rl-ink: #203548;
+  --rl-muted: #526677;
+  --rl-line: #d6e0e6;
+  --rl-accent: #b85c38;
+}
+.stApp { background: #eaf0f4; color: var(--rl-ink); }
+[data-testid="stHeader"] { background: #eaf0f4; }
+[data-testid="stAppDeployButton"],
+[data-testid="stMainMenu"],
+[data-testid="stToolbarActions"] { display: none; }
+.block-container { max-width: 1080px; padding: 4rem 2rem 3rem; }
+.st-key-workspace_panel {
+  background: #fff;
+  border: 1px solid var(--rl-line);
+  border-top: 4px solid var(--rl-accent);
+  border-radius: 8px;
+  padding: 26px 32px 30px;
+  box-shadow: 0 4px 18px #20354808;
+}
+[data-testid="stSidebar"] { border-right: 1px solid #172a3b; }
+[data-testid="stSidebar"] h2 { font-size: 27px; letter-spacing: -.9px; }
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p { color: #c3d0da; }
+[data-testid="stSidebar"] [data-testid="stRadio"] label {
+  padding: 10px 12px;
+  width: 100%;
+  border: 1px solid #44596b;
+  border-radius: 5px;
+  margin: 2px 0;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) {
+  background: #344f64;
+  border-color: #deab89;
+}
+.quick-hero { padding: 0 0 13px; border-bottom: 1px solid var(--rl-line); margin-bottom: 4px; }
+.quick-hero h1 {
+  font-size: clamp(29px, 3.5vw, 38px);
+  letter-spacing: -1.1px;
+  line-height: 1.18;
+  color: var(--rl-ink);
+  margin: 7px 0 9px;
+  padding: 0;
+}
+.quick-hero p { font-size: 16px; color: var(--rl-muted); line-height: 1.5; margin: 0; }
+.eyebrow { font-size: 11px; letter-spacing: 1.8px; font-weight: 750; color: #985031; }
+.st-key-workspace_panel h1 { font-size: 34px; letter-spacing: -.9px; }
+h2 { font-size: 25px; letter-spacing: -.5px; }
+h3 { font-size: 21px; }
+[data-testid="stWidgetLabel"] p { font-weight: 600; color: var(--rl-ink); }
+.st-key-workspace_panel [data-testid="stCaptionContainer"] p { color: var(--rl-muted); }
+[data-testid="stMetric"] {
+  padding: 16px 20px;
+  border: 1px solid #c9d7e0;
+  border-left: 4px solid #2e6070;
+  border-radius: 5px;
+  background: #f0f5f8;
+}
+[data-testid="stMetricLabel"] { color: #435d6f; }
+[data-testid="stMetricValue"] { font-size: 31px; font-variant-numeric: tabular-nums; }
+[data-testid="stExpander"] { border-color: #c9d7e0; border-radius: 5px; background: #fafcfd; }
+[data-testid="stAlert"] { border-radius: 5px; }
+[data-testid="stButton"] button { min-height: 42px; border-radius: 5px; font-weight: 600; }
+[data-testid="stButton"] button[kind="secondary"] { border-color: #aebfcd; background: #f8fafc; }
+[data-testid="stButton"] button[kind="secondary"]:hover { border-color: #2e6070; background: #edf4f6; }
+[data-testid="stButton"] button:focus-visible { outline: 3px solid #2e6070; outline-offset: 3px; }
+.rl-hero { padding: 0 0 20px; border-bottom: 1px solid var(--rl-line); margin-bottom: 8px; }
+.rl-kicker { font-size: 11px; letter-spacing: 1.8px; font-weight: 700; color: #985031; }
+.rl-title { font-size: 36px; font-weight: 750; letter-spacing: -1px; }
+.rl-title span { color: var(--rl-accent); }
+.rl-subtitle { font-size: 20px; margin-top: 8px; }
+.rl-description { color: var(--rl-muted); line-height: 1.6; margin-top: 8px; }
+@media (max-width: 640px) {
+  .block-container { padding: 4rem .65rem 1.5rem; }
+  .st-key-workspace_panel { padding: 20px 14px; border-radius: 5px; }
+  .quick-hero h1, .st-key-workspace_panel h1 { font-size: 29px; }
+  [data-testid="stMetric"] { padding: 12px; }
+  [data-testid="stMetricValue"] { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Show example names as hints until the user focuses a name field. */
+[class*="st-key-quick_option_"] input:focus::placeholder {
+  color: transparent;
+  opacity: 0;
+}
